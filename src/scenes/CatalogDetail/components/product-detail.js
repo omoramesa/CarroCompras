@@ -1,12 +1,5 @@
 import React , {Component}from 'react';
-import {
-    Button,
-    Text, 
-    View,
-    Image,
-    StyleSheet,
-    TouchableOpacity,
-} 
+import {Text, View, Image, StyleSheet, TouchableOpacity,} 
 from 'react-native';
 import HttpProduct from '../../../services/Product/http-products';
 
@@ -59,10 +52,7 @@ class ProductDetail extends Component{
   }
 }
 const styles = StyleSheet.create({
-  containerCol:{
-    flexDirection: 'column',
-    marginLeft: 10,
-  },
+ 
   dataContainer: {
     color: '#037a03',
     borderRadius: 5,
@@ -77,30 +67,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  brandText: {
-    color: '#037a03',
-    fontSize: 16,
-    marginBottom: 5,
-    fontWeight: "bold"
-  },
-
-  title: {
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  headerText: {
-    color: '#3949AB',
-    fontSize: 16,
-    marginBottom: 10,
-    fontWeight: "bold"
-  },
-  titleText: {
-    color: '#3949AB',
-    fontSize: 18,
-    marginBottom: 5,
-    fontWeight: "bold"
-  },
-
+ 
   imageContainer: {
     alignItems: 'center',
     justifyContent: 'center',

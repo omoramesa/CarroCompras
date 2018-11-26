@@ -1,13 +1,5 @@
 import React, {Component} from 'react'
-import {
-    View,
-    Text,
-    Button,
-    TextInput,
-    StyleSheet,
-    Image,
-    AsyncStorage
-} from 'react-native';
+import {View, Text, Button, TextInput, StyleSheet, Image, AsyncStorage} from 'react-native';
 
 import HttpUser from "../../../services/User/http-user";
 
@@ -21,11 +13,15 @@ export class LoginForm extends Component{
         }
     }
 
-    onChangeText = (input, text)=>{
+      onChangeText = (input, text)=>{
         if(input == 'email'){
-            this.email = text;
+            this.setState({
+                email: text
+            })
         }else if(input == 'password'){
-            this.password = text;
+            this.setState({
+                password: text
+            })
         }
     }
 
@@ -50,30 +46,25 @@ export class LoginForm extends Component{
 
                 <View style={styles.heading}>
                     <Image
-                        source={require('../../../assets/tienda.jpg')}
+                        source={require('../../../assets/carrito.png')}
                         style={styles.headingImage}
                         resizeMode="contain"
                     />
                 </View>
 
-                <View style={[styles.greeting]}>
-                    <Text style={[styles.greeting]}>
-                    Welcome back,
-                    </Text>
-                    <Text style={[styles.greeting2]}>
-                    Sign in to continue
-                    </Text>
+                <View style={styles.heading}>
+                     <Text style={[styles.title]}> Tienda en Línea</Text>
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <Text style={styles.formLabel}> Email </Text>
+                    <Text style={styles.formLabel}> Usuario </Text>
                     <TextInput
                         placeholder="Email"
                         style={styles.formInput}
                         value={this.state.email}
                         onChangeText={(text)=>this.onChangeText('email',text)}
                     />
-                    <Text style={styles.formLabel}> Password </Text>
+                    <Text style={styles.formLabel}> Contraseña </Text>
                     <TextInput
                         placeholder="Password"
                         style={styles.formInput}
@@ -82,7 +73,7 @@ export class LoginForm extends Component{
                         secureTextEntry
                     />
                     <Button
-                        title="Sign in"
+                        title="Iniciar Sesión"
                         onPress={() => this.login() }
                     />
                 </View>
@@ -99,38 +90,32 @@ const styles = StyleSheet.create({
        flexDirection: 'column',
        alignContent: 'center',
        alignItems: 'center',
-       marginTop: '30%'
+       marginTop: '10%'
     },
-    container:{
-    },
+   
     formLabel:{
-        color: '#198e97'
+        color: '#07660A'
     },
     formInput:{
         width: 250,
-        borderBottomColor: '#198e97',
-        borderBottomWidth: 1,
+        borderBottomColor: '#07660A',
         marginBottom: 20,
     },
     heading: {
         alignItems:  'flex-start'
     },
     headingImage: {
-        width: 38,
-        height: 38,
+        width: 150,
+        height: 150,
     },
     inputContainer: {
-        marginTop: 24
+        marginTop: 15
     },
-    greeting: {
-        marginTop: 20,
-        fontSize: 16,
+    title: {
+        color: 'green',
+        marginTop: 30,
+        fontSize: 30,
       },
-      greeting2: {
-        color: '#666',
-        fontSize: 16,
-        marginTop: 5,
-    }
     
 });
 

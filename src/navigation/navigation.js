@@ -13,6 +13,7 @@ import Profile from '../scenes/Profile';
         CatalogScreen: { screen: Catalog },
         CatalogDetailScreen: { screen: CatalogDetail },
         ProfileScreen: { screen: Profile },
+       
     },
     {
     initialRouteName: 'CatalogScreen',
@@ -35,7 +36,7 @@ import Profile from '../scenes/Profile';
     });
 
     export const SwitchNavigator = createSwitchNavigator({
-        Login: Login,
+       // Login: Login,
         AuthLoading: AuthLoading,
         App: Drawer
     },{

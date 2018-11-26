@@ -13,19 +13,13 @@ function Header(props){
         <View>
             <SafeAreaView>
                 <View style={styles.container}>
-                    <Image
-                        source={require('../../assets/tienda.jpg')}
-                        style={styles.logo}
-                    />
+                  
                     <View style={styles.right}>
                         {props.children}
                         <TouchableOpacity
                                 onPress = { ()=> props.navigation.navigate('CartScreen') }
                             >                
-                            <Image
-                                source={require('../../assets/tienda.jpg')}
-                                style={styles.logo}
-                            />
+                            
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -35,11 +29,7 @@ function Header(props){
 }
 
 const styles = StyleSheet.create({
-    logo: {
-        width: 80,
-        height: 26,
-        resizeMode: 'contain',
-    },
+ 
     container: {
         paddingVertical: 10,
         paddingHorizontal: 10,

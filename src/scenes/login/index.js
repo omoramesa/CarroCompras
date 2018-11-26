@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { 
-    View
-  } from 'react-native';
+import { View } from 'react-native';
 import LoginForm from './../login/components/login'
 
 class Login extends Component {
