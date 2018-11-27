@@ -1,12 +1,6 @@
 import React from 'react';
 
-import{
-    View,
-    Image,
-    StyleSheet,
-    SafeAreaView,
-    TouchableOpacity,
-} from 'react-native';
+import{View, Image, StyleSheet,SafeAreaView,TouchableOpacity,} from 'react-native';
 
 function Header(props){
     return (

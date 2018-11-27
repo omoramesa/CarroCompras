@@ -1,11 +1,5 @@
 import React, {Component} from 'react'
-import {
-    View,
-    Text,
-    FlatList,
-    Button,
-    AsyncStorage
-} from 'react-native';
+import { View,  Text,  FlatList,  Button,  AsyncStorage} from 'react-native';
 
 import Home from '../Home';
 import Header from '../Header';
@@ -48,10 +42,6 @@ class Catalog extends Component{
             <View>
                 <Home>
                     <Header>
-                       <Button
-                            title ="Cart"
-                            onPress = { ()=> this.props.navigation.navigate('CartScreen') }
-                        />
                         <Button
                             onPress={ this.closeSession } 
                             title="Salir"

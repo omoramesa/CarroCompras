@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Text, Button, TextInput, StyleSheet, Image, AsyncStorage} from 'react-native';
+import {View, Text, Button, TextInput, StyleSheet, Image, AsyncStorage, TouchableOpacity} from 'react-native';
 
 import HttpUser from "../../../services/User/http-user";
 
@@ -8,12 +8,35 @@ export class LoginForm extends Component{
     constructor(props){
         super(props);
         this.state = {
-            email: '',
-            password: '',
+            email: 'lzulu@gmail.com',
+            password: '123456',
         }
     }
-
-      onChangeText = (input, text)=>{
+   
+   
+    login = async () =>{
+        if(this.state.email === ""){
+            alert('El correo es obligatorio');
+            return;
+        }
+        if(this.state.password === ""){
+            alert('La contraseña es obligatoria');
+            return;
+        }
+        const params = {
+            email: this.state.email,
+            password: this.state.password,
+        }
+        const data = await HttpUser.login(params);
+        if(data){
+            await AsyncStorage.setItem('data', JSON.stringify(data));
+            this.props.navigation.navigate('App');  
+        }else{
+            alert('No se pudo');
+        }
+    }
+    
+    onChangeText = (input, text)=>{
         if(input == 'email'){
             this.setState({
                 email: text
@@ -25,25 +48,11 @@ export class LoginForm extends Component{
         }
     }
 
-    login = async () =>{
-        const params = {
-            email: this.email,
-            password: this.password,
-        }
-        const data = await HttpUser.login(params);
-        if(data.token){
-            console.log(data);
-            await AsyncStorage.setItem('data', JSON.stringify(data));
-            this.props.navigation.navigate('App');  
-        }
-    }
-    
+
     render() {
         return (
           <View style ={styles.container}>
-
             <View style={styles.wrapper}>
-
                 <View style={styles.heading}>
                     <Image
                         source={require('../../../assets/carrito.png')}
@@ -72,10 +81,15 @@ export class LoginForm extends Component{
                         onChangeText={(text)=>this.onChangeText('password',text)}
                         secureTextEntry
                     />
-                    <Button
-                        title="Iniciar Sesión"
-                        onPress={() => this.login() }
-                    />
+                    <View style={styles.containerButton}>
+                        <TouchableOpacity onPress={() => this.login() }>
+                        <View style={styles.button}>
+                            <Text style={styles.buttonText}>Iniciar Sesión</Text>
+                        </View>
+                        </TouchableOpacity>
+                    </View>
+
+
                 </View>
             </View>
           </View>
@@ -116,7 +130,18 @@ const styles = StyleSheet.create({
         marginTop: 30,
         fontSize: 30,
       },
-    
+      button: {
+        marginBottom: 15,
+        width: 100,
+        height:30,
+        alignItems: 'center',
+        backgroundColor: '#037a03',
+        borderRadius: 15,
+      },
+      containerButton:{
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
 });
 
 export default LoginForm;

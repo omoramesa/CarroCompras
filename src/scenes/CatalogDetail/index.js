@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { 
-    View
-  } from 'react-native';
+import {  View  } from 'react-native';
 import ProductDetail from "./components/product-detail";
+
+import {connect} from 'react-redux'
 
 class CatalogDetail extends Component {
 
@@ -12,9 +12,18 @@ class CatalogDetail extends Component {
     render() {
         return (
             <View>
-                <ProductDetail navigation={ this.props.navigation } />                  
+                <ProductDetail onPressEvent = {this.props.addItemToCart} navigation={ this.props.navigation } />                  
             </View>
         );
     }
 }
-export default CatalogDetail;
+
+const mapDispatchToProps = ( dispatch ) => {
+    return {
+        addItemToCart: ( product ) => dispatch({
+            type: 'ADD_TO_CART',
+            payload: product
+        })
+    }
+}
+export default connect (null, mapDispatchToProps) (CatalogDetail);

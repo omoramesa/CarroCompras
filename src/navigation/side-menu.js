@@ -16,18 +16,15 @@ export class SideMenu extends Component {
                     <Profile/>
                     <View style={styles.itemSectionNav}>
                         <Text style={styles.textItemSectionNav} onPress={ ()=> this.props.navigation.navigate('StackScren') } > 
-                        <Icon name="list-alt" size={24} color="#999"/>   Catalogo </Text>
+                        <Icon name="list-alt" size={24} color="#999"/> Catalogo </Text>
                     </View>
 
                     <View style={styles.itemSectionNav}>
                         <Text style={styles.textItemSectionNav} onPress={ ()=> this.props.navigation.navigate('StackCarScreen') } > 
-                        <Icon name="shopping-cart" size={24} color="#999"/>   Carrito de Compras </Text>
+                        <Icon name="shopping-cart" size={24} color="#999"/>Carro de Compras </Text>
                     </View>
-                </ScrollView>
+                </ScrollView>   
                 
-                <View style={styles.footerContainer}>
-                        <Text> Powered by Etn</Text>
-                </View>
         </View>
         )
     }
@@ -47,10 +44,6 @@ const styles = StyleSheet.create({
     textItemSectionNav:{
         fontSize: 18,
     },
-    footerContainer:{
-        padding: 15,
-        fontSize: 18,
-    }
 })
 
 export default SideMenu;

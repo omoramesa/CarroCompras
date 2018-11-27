@@ -1,40 +1,53 @@
 import React, { Component } from 'react';
-import { 
-    Text, 
-    View,
-    Image,
-    StyleSheet,
-    Button,
-    AsyncStorage
-} from 'react-native';
+import { Text, View, Image, StyleSheet,  Button, AsyncStorage} from 'react-native';
 
 class ProfileInfo extends Component {
     constructor(props) {
-    super(props);
+        super(props);
+        this.state ={
+            user:{}
+        }
+        this.getLogin();
     }
     
+    //funcion para obtener los datos del login
+    getLogin = async () =>{
+        try {
+            const data = await AsyncStorage.getItem('data');
+            if(data){
+                const user = JSON.parse(data);
+                this.setState({
+                    user: user
+                })
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     closeSession = async () => {
         try {
             await AsyncStorage.clear();
-            this.props.navigation.navigate('Auth')
+            this.props.navigation.navigate('AuthLoading')
         } catch (error) {
             console.log(error.message);
         }
     }
-//const Profile = props => (
+
     render() {
     return (  
         <View style={styles.profileContainer}>
             <Image
-                source = { require('../../../assets/OscarMora.jpg') }
+                source = { {uri: this.state.user.photo} }
                 style={styles.profileImage}
             />
-            <Text style={styles.profileName}> Oscar  Mora </Text>
-            <Text style={styles.username}> @omoramesa  </Text>
+            <Text style={styles.profileName}> {this.state.user.name}}</Text>
+            <Text style={styles.username}>{this.state.user.username} </Text>
             <Button
-            onPress={() => this.closeSession() }
-            title="Sign out"
-            color='white'
+                onPress={() => this.closeSession() }
+                title="Salir"
+                color='green'
             />
         </View>
     );
@@ -47,12 +60,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#037A03',
         justifyContent: 'center',
         alignItems: 'center'
-    },
-    profileTittle:{
-        color: '#fff',
-        fontSize: 30,
-        marginTop: 10
-    },
+    }, 
     profileName:{
         color: '#fff',
         fontSize: 24,

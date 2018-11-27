@@ -1,5 +1,5 @@
 import React , {Component}from 'react';
-import {Text, View, Image, StyleSheet, TouchableOpacity,} 
+import {Text, View, Image, StyleSheet, TouchableOpacity} 
 from 'react-native';
 import HttpProduct from '../../../services/Product/http-products';
 

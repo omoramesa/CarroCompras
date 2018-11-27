@@ -1,67 +1,53 @@
 import React from 'react';
-import { 
-    Text, 
-    StyleSheet,
-    ScrollView,
-    TextInput,
-    Button,
-    View
-  } from 'react-native';
+import { Text, StyleSheet, ScrollView, TextInput, Button, View } from 'react-native';
 
   const Form = props => (
     <ScrollView style={ styles.formWrapper }>
-            <Text style={ styles.formLabel }> Name </Text>
+            <Text style={ styles.formLabel }> Nombre </Text>
             <TextInput
                 placeholder = 'Name field is required'
                 style = { styles.formInput }
                 onChangeText = { props.onChangeText }
             />
 
-            <Text style={ styles.formLabel }> Last name </Text>
+            <Text style={ styles.formLabel }> Apellido </Text>
             <TextInput
                 placeholder = 'Last name field is required'
                 style = { styles.formInput }
             />
 
-            <Text style={ styles.formLabel }> Document number </Text>
+            <Text style={ styles.formLabel }> Identificacion</Text>
             <TextInput
                 placeholder = 'Document number field is required'
                 style = { styles.formInput }
             />
             
-            <Text style={ styles.formLabel }>City</Text>
+            <Text style={ styles.formLabel }>Ciudad</Text>
             <TextInput
                 placeholder = 'City field is required'
                 style = { styles.formInput }
             />
 
-            <Text style={ styles.formLabel }>Adress</Text>
+            <Text style={ styles.formLabel }>Direccion Domicilio</Text>
             <TextInput
                 placeholder = 'Adress field is required'
                 style = { styles.formInput }
             />
 
-            <Text style={ styles.formLabel }>Phone</Text>
+            <Text style={ styles.formLabel }>Celular</Text>
             <TextInput
                 placeholder = 'Phone field is required'
                 style = { styles.formInput }
             />
 
-            <Text style={ styles.formLabel }>Email</Text>
+            <Text style={ styles.formLabel }>Correo</Text>
             <TextInput
                 placeholder = 'Email field is required'
                 style = { styles.formInput }
             />
-
-            <Text style={ styles.formLabel }>Confirm Email</Text>
-            <TextInput
-                placeholder = 'Confirm Email field is required'
-                style = { styles.formInput }
-            />
-
             <View>
                     <Button
-                        title ="Ok"
+                        title ="Enviar"
                         onPress = { ()=>{ props.navigation.navigate('SuccessScreen') } }
                     />
             </View>
