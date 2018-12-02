@@ -13,7 +13,7 @@ export class SideMenu extends Component {
         return (
         <View style={styles.container}>
                 <ScrollView>
-                    <Profile/>
+                    <Profile navigation = {this.props.navigation}/>
                     <View style={styles.itemSectionNav}>
                         <Text style={styles.textItemSectionNav} onPress={ ()=> this.props.navigation.navigate('StackScren') } > 
                         <Icon name="list-alt" size={24} color="#999"/> Catalogo </Text>

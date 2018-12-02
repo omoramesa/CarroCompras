@@ -33,8 +33,7 @@ import Success from '../scenes/Succes';
     {
     initialRouteName: 'CatalogScreen',
     navigationOptions:{
-        headerTitle: 'Mi Tienda',
-        headerBackTitle: 'Atras',
+        headerTitle: 'Productos',
         headerRight: (
             <ShoppingCarIcon/>
         )

@@ -6,7 +6,8 @@
 
 import React, { Component } from 'react';
 import {SwitchNavigator} from "./src/navigation/navigation";
-
+import { Provider } from 'react-redux';
+import store from './src/store';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -14,8 +15,12 @@ export default class App extends Component<Props> {
     super(props);
   }
   render() {
+  
     return (
-      <SwitchNavigator/>
+      <Provider store = {store}>
+          <SwitchNavigator/>    
+      </Provider>
+      
     );
   }
 }

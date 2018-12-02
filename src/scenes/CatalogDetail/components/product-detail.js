@@ -1,7 +1,7 @@
 import React , {Component}from 'react';
-import {Text, View, Image, StyleSheet, TouchableOpacity} 
-from 'react-native';
+import {Text, View, Image, Button, StyleSheet, TouchableOpacity} from 'react-native';
 import HttpProduct from '../../../services/Product/http-products';
+
 
 class ProductDetail extends Component{
   constructor(props){
@@ -41,7 +41,7 @@ class ProductDetail extends Component{
           </View>
 
           <View style={styles.containerButton}>
-            <TouchableOpacity onPress={this._onPressButton}>
+            <TouchableOpacity onPress={ ()=> this.props.onPressEvent(this.state.product) }>
               <View style={styles.botton}>
                 <Text style={styles.buttonText}>Añadir al Carrito</Text>
               </View>

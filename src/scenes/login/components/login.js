@@ -16,7 +16,7 @@ export class LoginForm extends Component{
    
     login = async () =>{
         if(this.state.email === ""){
-            alert('El correo es obligatorio');
+            alert('El correo es  obligatorio');
             return;
         }
         if(this.state.password === ""){

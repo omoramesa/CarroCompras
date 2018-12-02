@@ -1,34 +1,24 @@
 import React from 'react';
-import { View , TouchableHighlight, Text, StyleSheet } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { Text, View, StyleSheet, Button } from 'react-native';
+import   Icon  from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
-import { Badge } from 'react-native-elements';
 
-const ShoppingCarIcon =  props => (
-    <View>
-        <TouchableHighlight
-        onPress = { ()=> props.cartItems.length>0 ? props.navigation.navigate('CartScreen') : alert('No tienes artículos en tu carrito de compras.')  }
-        underlayColor = "#ccc">
-            <View>
-                <Badge containerStyle={{ backgroundColor: 'orange'}}>
-                    <Text>{props.cartItems.length } items </Text>
-                </Badge>
-                <Icon
-                    name='cart'
-                    type='evilicon'
-                    color='#517fa4'
-                />
-            </View>
-        </TouchableHighlight>
+
+
+const ShoppingCarIcon = props => (
+    <View style={styles.container}>
+        <View style={styles.badget}>
+            <Text style={styles.badgetText}> { props.cartItems.length } </Text>
+        </View>
+        <Icon 
+            onPress={()=>props.navigation.navigate('CartScreen')}
+            name="shopping-cart" size={ 40 } />
     </View>
-);
 
-const mapDispatchToProsp = ( state ) => {
-    return {
-        cartItems: state
-    }
-}
+
+
+);
 
 const styles = StyleSheet.create({
     container:{
@@ -38,14 +28,32 @@ const styles = StyleSheet.create({
         position: 'absolute',
         height: 30,
         width: 30,
+        borderRadius: 15,
         backgroundColor: 'red',
         right: 15, 
         bottom: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 1000
+
+
+
+
+
+
     },
     badgetText: {
+        color: '#fff',
         fontWeight: 'bold',
         fontSize: 14,
     }
-})
+});
+
+const mapDispatchToProsp = ( state ) => {
+    return {
+        cartItems: state        
+    }
+}
+
 
 export default connect(mapDispatchToProsp, null)(withNavigation(ShoppingCarIcon));

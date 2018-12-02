@@ -10,7 +10,7 @@ import {
 
 const CartItem = (props) => (
     <TouchableHighlight
-        onPress = { ()=> {} }
+        onPress = { () => props.onPressEvent(props.item)  }
         underlayColor = "#ccc"
     >
         <View style={ styles.container }>
