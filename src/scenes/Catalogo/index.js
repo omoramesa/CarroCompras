@@ -36,24 +36,23 @@ class Catalog extends Component{
     render(){
         return (
             <View>
+                <View style={styles.containerButton}>
+                    <Button style={styles.button}
+                     onPress={ this.closeSession } 
+                        title="Salir"
+                    />
+                 <Text></Text> 
 
-
-
-                
-                     <Button style={styles.button}
-                            onPress={ this.closeSession } 
-                            title="Cerrar Sesión"
-                        />
-                    
-                        <FlatList
-                            data ={ this.state.productList }
-                            renderItem={ this.renderItem }
-                            ItemSeparatorComponent = { this.separatorComponent }
-                            ListEmptyComponent = { this.emptyComponent }
-                            keyExtractor = { this.keyExtractor }
-                            ListHeaderComponent={this.renderHeaderSearchBar}  
-                        />
-          
+                  </View> 
+                    <FlatList
+                        data ={ this.state.productList }
+                        renderItem={ this.renderItem }
+                        ItemSeparatorComponent = { this.separatorComponent }
+                        ListEmptyComponent = { this.emptyComponent }
+                        keyExtractor = { this.keyExtractor }
+                        ListHeaderComponent={this.renderHeaderSearchBar}  
+                    />
+           
             </View>
         )
     }
@@ -98,12 +97,12 @@ const styles = StyleSheet.create({
         width: 50,
         height:30,
         alignItems: 'center',
-        backgroundColor: '#037a03',
+        backgroundColor: 'green',
         borderRadius: 15,
       },
       containerButton:{
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
       },
 });
 

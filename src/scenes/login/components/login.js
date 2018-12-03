@@ -32,7 +32,7 @@ export class LoginForm extends Component{
             await AsyncStorage.setItem('data', JSON.stringify(data));
             this.props.navigation.navigate('App');  
         }else{
-            alert('No se pudo');
+            alert('No fue posible iniciar sesión');
         }
     }
     

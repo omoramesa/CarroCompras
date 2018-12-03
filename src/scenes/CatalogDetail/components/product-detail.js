@@ -41,11 +41,19 @@ class ProductDetail extends Component{
           </View>
 
           <View style={styles.containerButton}>
-            <TouchableOpacity onPress={ ()=> this.props.onPressEvent(this.state.product) }>
-              <View style={styles.botton}>
-                <Text style={styles.buttonText}>Añadir al Carrito</Text>
-              </View>
-            </TouchableOpacity>
+          
+             
+                <Button style={styles.botton}
+                        title ="añadir al carrito"
+                        onPress={ ()=> this.props.onPressEvent(this.state.product) }
+                      
+                    />
+                 <Text></Text> 
+                <Button style={styles.botton}
+                        title ="Lista de Productos"
+                        onPress = { ()=> this.props.navigation.navigate('CatalogScreen') }
+                    />
+               
           </View>
       </View>
     );
