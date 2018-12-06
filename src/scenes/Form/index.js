@@ -3,51 +3,42 @@ import { Text, StyleSheet, ScrollView, TextInput, Button, View } from 'react-nat
 
   const Form = props => (
     <ScrollView style={ styles.formWrapper }>
-            <Text style={ styles.formLabel }> Nombre </Text>
-            <TextInput
-                placeholder = 'Name field is required'
-                style = { styles.formInput }
-                onChangeText = { props.onChangeText }
-            />
-
-            <Text style={ styles.formLabel }> Apellido </Text>
-            <TextInput
-                placeholder = 'Last name field is required'
-                style = { styles.formInput }
-            />
-
-            <Text style={ styles.formLabel }> Identificacion</Text>
-            <TextInput
-                placeholder = 'Document number field is required'
-                style = { styles.formInput }
-            />
             
-            <Text style={ styles.formLabel }>Ciudad</Text>
+            <Text style={ styles.formLabel }> Identificacion:</Text>
             <TextInput
-                placeholder = 'City field is required'
-                style = { styles.formInput }
+                placeholder = 'Ingrese Identificacion'
+            />
+            <Text style={ styles.formLabel }> Nombre:</Text>
+            <TextInput
+                placeholder = 'Ingrese Nombre'
             />
 
-            <Text style={ styles.formLabel }>Direccion Domicilio</Text>
+            <Text style={ styles.formLabel }> Apellido:</Text>
             <TextInput
-                placeholder = 'Adress field is required'
-                style = { styles.formInput }
+                placeholder = 'Ingrese Apellido'
+            />           
+            <Text style={ styles.formLabel }>Ciudad:</Text>
+            <TextInput
+                placeholder = 'Ingrese Ciudad'
             />
 
-            <Text style={ styles.formLabel }>Celular</Text>
+            <Text style={ styles.formLabel }>Direccion:</Text>
             <TextInput
-                placeholder = 'Phone field is required'
-                style = { styles.formInput }
+                placeholder = 'Ingrese Direccion'
             />
 
-            <Text style={ styles.formLabel }>Correo</Text>
+            <Text style={ styles.formLabel }>Telefono:</Text>
             <TextInput
-                placeholder = 'Email field is required'
-                style = { styles.formInput }
+                placeholder = 'Ingrese Telefono'
             />
-            <View>
-                    <Button
-                        title ="Enviar"
+
+            <Text style={ styles.formLabel }>Correo:</Text>
+            <TextInput
+                placeholder = 'Ingrese Correo'
+            />
+            <View style={styles.containerButton}>
+                    <Button style={styles.botton}
+                        title ="Pagar"
                         onPress = { ()=>{ props.navigation.navigate('SuccessScreen') } }
                     />
             </View>
@@ -60,14 +51,22 @@ import { Text, StyleSheet, ScrollView, TextInput, Button, View } from 'react-nat
     formWrapper:{
       marginHorizontal: 25
     },
+    containerButton:{
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
     formLabel:{
-      color: '#3F51B5',
-      marginVertical: 10
+      color: '#037a03',
+      marginVertical: 0
     },
-    formInput: {
-      borderBottomWidth: 1,
-      borderBottomColor: '#ccc'
-    }
+
+    botton: {
+        marginBottom: 20,
+        width: 200,
+        alignItems: 'center',
+        backgroundColor: '#037a03',
+        borderRadius: 10,
+      }
   });
 
   export default Form;

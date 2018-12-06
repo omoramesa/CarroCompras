@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet , Image, TouchableHighlight} from 'react-native';
-
+import   Icon  from 'react-native-vector-icons/FontAwesome';
 
 const ItemProduct = (props) => (
     <TouchableHighlight
@@ -13,14 +13,19 @@ const ItemProduct = (props) => (
                 style={styles.avatar}
                 source ={{ uri: props.product.avatar }}
             />
-            
+                     
         </View>
         <View style={ styles.right }>
             <Text style={ styles.name }>{ props.product.name }</Text>
             <Text style={ styles.price }> $ { props.product.price }</Text>
             <Text style={ styles.description }>{ props.product.description }</Text>
         </View>
+        <View  style={ styles.iconRight }>
+            <Icon 
+                    name="arrow-right" size={ 15 } />
+         </View>
     </View>
+   
     </TouchableHighlight>
 );
 
@@ -34,9 +39,16 @@ const styles = StyleSheet.create({
         width: 120,
         resizeMode: 'contain',
     },
+
     right:{
         paddingLeft: 3,
         justifyContent: 'space-between',
+
+    },
+    iconRight:{
+        flex: 1,
+        paddingLeft: 3,
+        justifyContent: 'center',
 
     },
     left:{

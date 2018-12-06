@@ -25,16 +25,6 @@ class ProfileInfo extends Component {
         }
     }
 
-
-    closeSession = async () => {
-        try {
-            await AsyncStorage.clear();
-            this.props.navigation.navigate('AuthLoading')
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
-
     render() {
     return (  
         <View style={styles.profileContainer}>
@@ -44,11 +34,6 @@ class ProfileInfo extends Component {
             />
             <Text style={styles.profileName}> {this.state.user.name}}</Text>
             <Text style={styles.username}>{this.state.user.username} </Text>
-            <Button
-                onPress={() => this.closeSession() }
-                title="Salir"
-                color='green'
-            />
         </View>
     );
     }
@@ -56,14 +41,14 @@ class ProfileInfo extends Component {
 
 const styles = StyleSheet.create({
     profileContainer: {
-        paddingTop: 20,
+        paddingTop: 10,
         backgroundColor: '#037A03',
         justifyContent: 'center',
         alignItems: 'center'
     }, 
     profileName:{
         color: '#fff',
-        fontSize: 24,
+        fontSize: 40,
         marginTop: 20
     },
     profileImage:{

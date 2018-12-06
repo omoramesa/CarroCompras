@@ -37,12 +37,6 @@ class Catalog extends Component{
         return (
             <View>
                 <View style={styles.containerButton}>
-                    <Button style={styles.button}
-                     onPress={ this.closeSession } 
-                        title="Salir"
-                    />
-                 <Text></Text> 
-
                   </View> 
                     <FlatList
                         data ={ this.state.productList }
@@ -52,7 +46,6 @@ class Catalog extends Component{
                         keyExtractor = { this.keyExtractor }
                         ListHeaderComponent={this.renderHeaderSearchBar}  
                     />
-           
             </View>
         )
     }
@@ -61,32 +54,6 @@ class Catalog extends Component{
 
 
 const styles = StyleSheet.create({
-    wrapper:{
-       paddingHorizontal: 20,
-       flexDirection: 'column',
-       alignContent: 'center',
-       alignItems: 'center',
-       marginTop: '10%'
-    },
-   
-    formLabel:{
-        color: '#07660A'
-    },
-    formInput:{
-        width: 250,
-        borderBottomColor: '#07660A',
-        marginBottom: 20,
-    },
-    heading: {
-        alignItems:  'flex-start'
-    },
-    headingImage: {
-        width: 150,
-        height: 150,
-    },
-    inputContainer: {
-        marginTop: 15
-    },
     title: {
         color: 'green',
         marginTop: 30,
@@ -96,6 +63,7 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         width: 50,
         height:30,
+        justifyContent:'space-between',
         alignItems: 'center',
         backgroundColor: 'green',
         borderRadius: 15,

@@ -1,17 +1,11 @@
 import React from 'react';
-import {
-    Text,
-    View,
-    StyleSheet ,
-    Image,
-    TouchableHighlight
-} from 'react-native';
+import {Text, View, StyleSheet, Image, TouchableHighlight} from 'react-native';
 
 
 const CartItem = (props) => (
     <TouchableHighlight
         onPress = { () => props.onPressEvent(props.item)  }
-        underlayColor = "#ccc"
+        underlayColor = "#135811"
     >
         <View style={ styles.container }>
             <View styles={ styles.left }>

@@ -5,7 +5,7 @@ const cartItems = ( state = [], action ) => {
             return [ ...state, action.payload ];
 
         case 'REMOVE_FROM_CART':    
-            return state.filter(cartItem => cartItem.id !== action.payload.id );
+            return state.filter(cartItem => cartItem._id !== action.payload._id );
     }
     return state;
 }
