@@ -8,8 +8,8 @@ export class LoginForm extends Component{
     constructor(props){
         super(props);
         this.state = {
-            email: 'lzulu@gmail.com',
-            password: '123456',
+            email: 'agiraldo@gmail.com',
+            password: '654321',
         }
     }
 

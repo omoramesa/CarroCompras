@@ -32,8 +32,8 @@ class ProfileInfo extends Component {
                 source = { {uri: this.state.user.photo} }
                 style={styles.profileImage}
             />
-            <Text style={styles.profileName}> {this.state.user.name}}</Text>
-            <Text style={styles.username}>{this.state.user.username} </Text>
+            <Text style={styles.profileName}> {this.state.user.name}</Text>
+            <Text style={styles.username}>@{this.state.user.username} </Text>
         </View>
     );
     }
